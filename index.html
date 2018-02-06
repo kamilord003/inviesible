@@ -6,6 +6,7 @@
   <title>invie las mejores guitarras</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Allerta" rel="stylesheet" />
   <link rel="stylesheet" href="css/invie.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 
 <body>
@@ -17,7 +18,8 @@
         <!--logotipo-->
         <img src="imagenes/invie.png" width="186" height="60" alt="Invie Logotipo" />
       </figure>
-      <nav class="menu">
+      <span class="burguer-button icon-menu" id="burguer-button"></span>
+      <nav class="menu" id="menu">
         <!--menu-->
         <ul>
           <li>
@@ -46,9 +48,17 @@
     <!--guitarras-->
     <h2>Nuestras Guitarras</h2>
     <!-- titulo  -->
+    <div class="video-demo-contenedor">
+      <div class="video-demo">
+        <div class="video-responsive-contenedor">
+          <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/R1dW8M4EqYY" frameborder="0"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
     <article class="guitarra">
       <!-- guitarra 1  -->
-      <img class="right" src="imagenes/invie-acustica.png" alt="Guitarra Invie Acustica" width="350" />
+      <img class="right" data-src="imagenes/invie-acustica.png" alt="Guitarra Invie Acustica" width="350" />
       <div class="contenedor-guitarra-a">
         <h3 class="title-b">Invie Acustica</h3>
         <ol>
@@ -60,7 +70,7 @@
     </article>
     <article class="guitarra b">
       <!-- guitarra 2  -->
-      <img class="left" src="imagenes/invie-classic.png" alt="Guitarra Invie Ilassic" width="350" />
+      <img class="left" data-src="imagenes/invie-classic.png" alt="Guitarra Invie Ilassic" width="350" />
       <div class="contenedor-guitarra-b">
         <h3 class="title-b">Invie Classic</h3>
         <ol>
@@ -74,7 +84,7 @@
   <footer class="footer">
     <div class="contenedor">
       <div class="contacto">
-        <img src="imagenes/invie-white.png" alt="logotipo blanco">
+        <img data-src="imagenes/invie-white.png" alt="logotipo blanco">
         <a href="tel:+573034236587">
           <strong>Telefono</strong>
           <span>3034236587</span>
@@ -121,6 +131,35 @@
       </form>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script>
+    var $burguerButton = document.getElementById('burguer-button')
+    var $menu = document.getElementById('menu')
+    $burguerButton.addEventListener('touchstart', function toggleMenu() {
+      $menu.classList.toggle('active')
+    });
+    function toggleMenu() {
+      $menu.classList.toggle('active')
+    }
+    function mostrarMenu() {
+      $menu.classList.add('active')
+    }
+    function ocultarMenu() {
+      $menu.classList.remove('active')
+    }
+    //load by lazy
+    var bLazy = new Blazy({
+      selector: 'img'
+      // options
+    });
+    //gestos//
+    var $body = document.body;
+
+    var gestos = new Hammer($body);
+    gestos.on('swipeleft', ocultarMenu);
+    gestos.on('swiperight', mostrarMenu); 
+  </script>
 </body>
 
 </html>

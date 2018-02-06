@@ -1,3 +1,41 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?fswiss');
+    src: url('../fonts/icomoon.eot?fswiss#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?fswiss') format('truetype'), url('../fonts/icomoon.woff?fswiss') format('woff'), url('../fonts/icomoon.svg?fswiss#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before {
+    content: "\e942";
+}
+
+.icon-envelop:before {
+    content: "\e945";
+}
+
+.icon-menu:before {
+    content: "\e9bd";
+}
+
+.icon-close:before {
+    content: "\ea0d";
+}
+
 /* {
     width: tamaño;
    height: tamaño;
@@ -46,7 +84,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-    background: red;
+    background: wheat;
 }
 
 .col1 input {
@@ -55,7 +93,7 @@ input:focus, textarea:focus {
 
 .background {
     background-image: url('../imagenes/background.png');
-    background-size: cover; 
+    background-size: cover;
 }
 
 .button {
@@ -88,7 +126,7 @@ input:focus, textarea:focus {
 }
 
 .contenedor {
-    width: 800px;
+    max-width: 800px;
     margin: auto;
     position: relative;
 }
@@ -259,4 +297,237 @@ input:focus, textarea:focus {
 
 .tabla {
     margin: 50px 0;
+}
+
+.burguer-button {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #395667;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    color: white;
+    z-index: 3;
+    display: none;
+}
+
+.video-demo {
+    max-width: 500px;
+    width: 100%;
+    border: 5px solid #3c5b6e;
+}
+
+.video-demo-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+@media screen and (max-width: 800px) {
+    /*portada*/
+    .tabla {
+        margin: 50px 20px;
+    }
+    .tabla .contenedor {
+        overflow: auto;
+        border: 1px solid #273b47;
+    }
+    .titulo {
+        font-size: 45px;
+        margin-top: 30px;
+    }
+    .title-a {
+        font-size: 18px;
+    }
+    .portada {
+        height: auto;
+    }
+    .portada .button {
+        margin-bottom: 30px;
+        display: inline-block
+    }
+    /*portada*/
+    /*guitarras*/
+    .video-demo-contenedor {
+        margin-bottom: 0;
+    }
+    .guitarras {
+        text-align: center;
+    }
+    .left, .right {
+        float: none;
+        position: static;
+    }
+    .title-b {
+        margin: 0;
+    }
+    .guitarra li {
+        list-style: none;
+    }
+    .guitarra.b {
+        height: auto;
+    }
+    .contenedor-guitarra-b {
+        position: static;
+        margin: 0;
+    }
+    .contenedor-guitarra-a {
+        padding: 0;
+    }
+    /*guitarras*/
+}
+
+@media screen and (max-width: 767px) {
+    /*footer*/
+    .footer .contenedor {
+        display: block;
+    }
+    .formulario {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+    }
+    .contacto {
+        margin: 0 auto;
+    }
+    .col1 {
+        margin: 0;
+    }
+    .intereses label {
+        display: block;
+        font-size: 16px;
+    }
+    input[type="text"], input[type="email"] {
+        font-size: 16px;
+        padding: 5px;
+    }
+    input[type="radio"], input[type="checkbox"] {
+        zoom: 1.0;
+    }
+    textarea {
+        width: 100%;
+    }
+    /*footer*/
+}
+
+@media screen and (max-width: 650px) {
+    .header {
+        text-align: center;
+    }
+    .logotipo {
+        margin: 0;
+    }
+    .menu {
+        position: static;
+        display: block;
+    }
+    .menu li:first-child {
+        margin: 0;
+    }
+    .menu ul {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /*portada*/
+    .portada .button {
+        display: block;
+    }
+    .precios .contenedor .logotipo {
+        margin: 50px 0;
+    }
+    .burguer-button {
+        display: block;
+    }
+    .portada .contenedor {
+        position: static;
+    }
+    .header {
+        position: static;
+    }
+    .header .contenedor {
+        position: static;
+    }
+    .menu {
+        background: rgba(255, 60, 80, .8);
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        z-index: 2;
+        transition: .3s;
+    }
+    .menu.active {
+        left: 0;
+    }
+    .menu ul {
+        flex: 1;
+    }
+    .menu li {
+        display: block;
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid white;
+    }
+    .menu li:before {
+        display: none;
+    }
+    .menu li:first-child {
+        border-top: 1px solid white;
+    }
+    .portada {
+        text-align: center;
+    }
+    .titulo {
+        font-size: 30px;
+    }
+    .title-a {
+        font-size: 16px;
+    }
+    /*portada*/
+    /*guitarra*/
+    .guitarra img {
+        width: 200px;
+    }
+    .video-demo {
+        margin: 0 10px;
+    }
+    .title-b {
+        font-size: 30px;
+    }
+    /*guitarra*/
+    /*footer*/
+    .col2 {
+        align-items: stretch;
+    }
+    /*footer*/
+}
+
+video {
+    width: 100%
+}
+
+.video-responsive-contenedor {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.video-responsive-src {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 }

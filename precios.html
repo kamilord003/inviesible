@@ -6,17 +6,19 @@
   <title>invie las mejores guitarras</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Allerta" rel="stylesheet" />
   <link rel="stylesheet" href="css/invie.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 
-<body>
+<body class="precios">
   <header id="header" class="header background">
     <!--header-->
-      <div class="contenedor">
+    <div class="contenedor">
       <figure class="logotipo">
         <!--logotipo-->
         <img src="imagenes/invie.png" width="186" height="60" alt="Invie Logotipo" />
       </figure>
-      <nav class="menu">
+      <span class="burguer-button icon-menu" id="burguer-button"></span>
+      <nav class="menu" id="menu">
         <!--menu-->
         <ul>
           <li>
@@ -31,7 +33,7 @@
         </ul>
       </nav>
     </div>
-    </header>
+  </header>
   <div>
     <section class="tabla">
       <div class="contenedor">
@@ -114,6 +116,35 @@
       </form>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script>
+    var $burguerButton = document.getElementById('burguer-button')
+    var $menu = document.getElementById('menu')
+    $burguerButton.addEventListener('touchstart', function () {
+      $menu.classList.toggle('active')
+    });
+    function toggleMenu() {
+      $menu.classList.toggle('active')
+    }
+    function mostrarMenu() {
+      $menu.classList.add('active')
+    }
+    function ocultarMenu() {
+      $menu.classList.remove('active')
+    }
+    //load by lazy
+    var bLazy = new Blazy({
+      selector: 'img'
+      // options
+    });
+    var $body = document.body;
+
+    var gestos = new Hammer($body);
+    gestos.on('swipeleft', ocultarMenu);
+    gestos.on('swiperight', mostrarMenu);
+
+  </script>
 </body>
 
 </html>
